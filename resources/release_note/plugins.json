@@ -18,6 +18,14 @@
                         "link": "/gerrit/"
                     },
                     {
+                        "id": "gitlab",
+                        "title": "gitlab",
+                        "img": "img/gitlab.svg",
+                        "description": "Git Repository Management & Code Review Tool",
+                        "link": "/gitlab"
+
+                    },
+                    {
                         "id": "sonar",
                         "title": "sonar",
                         "img": "img/sonar.png",
