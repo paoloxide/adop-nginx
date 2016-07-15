@@ -5,7 +5,7 @@ cp -R /resources/configuration/* /etc/nginx/
 cp -R /resources/release_note/* /usr/share/nginx/html/
 
 # Auto populate the release note page with the blueprints
-/resources/scripts/reload_release_notes.sh
+# /resources/scripts/reload_release_notes.sh
 
 # Copy and replace tokens
 perl -p -i -e 's/###([^#]+)###/defined $ENV{$1} ? $ENV{$1} : $&/eg' < "/templates/configuration/nginx.conf" 2> /dev/null 1> "/etc/nginx/nginx.conf"
@@ -15,7 +15,7 @@ perl -p -i -e 's/###([^#]+)###/defined $ENV{$1} ? $ENV{$1} : $&/eg' < "/template
 # the depends_on see https://github.com/docker/compose/pull/686 and https://github.com/docker/compose/issues/2682 is introduced
 # on docker compose
 SLEEP_TIME=2
-declare -a DEPENDENCIES=( "kibana:5601" "gerrit:8080/gerrit" "gitlab/gitlab" "jenkins:8080" "sonar:9000" "sensu-uchiwa:3000" "nexus:8081" )
+declare -a DEPENDENCIES=( "kibana:5601" "gerrit:8080/gerrit" "jenkins:8080" "sonar:9000" "sensu-uchiwa:3000" "nexus:8081" )
 for d in ${DEPENDENCIES[@]}; do 
   echo "waiting for $d to be available";
   # use wget as already installed... 
